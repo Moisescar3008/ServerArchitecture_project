@@ -13,6 +13,8 @@ services:
     environment:
       # The only obligatory enviroment variable of the postgres image
       POSTGRES_PASSWORD: rootroot
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
 
 
 

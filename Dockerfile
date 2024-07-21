@@ -8,13 +8,10 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Instala las dependencias de Python
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia el resto del código de la aplicación en el contenedor
 COPY . .
 
-# Expone el puerto en el que se ejecutará la aplicación
-EXPOSE 7000
-
 # Comando para ejecutar la aplicación
-CMD []
+CMD ["python", "generator.py"]
