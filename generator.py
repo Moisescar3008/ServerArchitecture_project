@@ -24,7 +24,7 @@ class FarmDataGenerator:
         return f'postgresql+psycopg2://{self.db_username}:{self.db_password}@{self.db_host}:{self.db_port}/{dbname}'
 
     def check_and_create_database(self):
-        connection_str = f"dbname='postgres' user='{self.db_username}' host='{self.db_host}' password='{self.db_password}' port='{self.db_port}'"
+        connection_str = f"dbname={self.db_name} user='{self.db_username}' host='{self.db_host}' password='{self.db_password}' port='{self.db_port}'"
         conn = psycopg2.connect(connection_str)
         conn.autocommit = True
         cur = conn.cursor()
