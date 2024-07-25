@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import json
-from datetime import datetime, timedelta
+from datetime import datetime
 import time
 
 class FarmDataGenerator:
