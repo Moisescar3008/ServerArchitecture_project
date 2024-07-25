@@ -50,5 +50,5 @@ class FarmDataGenerator:
             time.sleep(self.wait_time)
 
 if __name__ == "__main__":
-    generator = FarmDataGenerator(start_date_str='2023-05-16', num_iterations=5, wait_time=1, num_rows=10)
+    generator = FarmDataGenerator(start_date_str='2023-05-16', num_iterations=10, wait_time=5, num_rows=10)
     generator.run()
