@@ -27,13 +27,15 @@ class FarmDataGenerator:
         }
         
         return row
-
-    def run(self):
+    
+    # Bucle to generate random data on a JSON format.
+    def run(self, wait_time=5, num_jsons=10):
         while True:
-            data = self.generate_random_data()
-            print(json.dumps(data, indent=4))
-            time.sleep(1)  # Adjust sleep time as needed
+            json_data_list = [self.generate_random_data() for _ in range(num_jsons)]
+            for data in json_data_list:
+                print(json.dumps(data, indent=4))
+            time.sleep(wait_time)
 
 if __name__ == "__main__":
     generator = FarmDataGenerator(start_date_str='2023-05-16')
-    generator.run()
+    generator.run(wait_time=2, num_jsons=1)  # Adjust wait_time and num_jsons as needed
