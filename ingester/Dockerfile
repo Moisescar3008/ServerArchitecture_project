@@ -1,17 +1,19 @@
-# Utiliza una imagen base de Python oficial
-FROM python:3.9-slim
+# Base image
+FROM python:3.11-slim
 
-# Establece el directorio de trabajo dentro del contenedor
+# Set working directory
 WORKDIR /app
 
-# Copia los archivos requerimientos.txt en el contenedor
-COPY requirements.txt .
+# Copy files
+COPY producer.py /app
+COPY requirements.txt /app
 
-# Instala las dependencias de Python
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia el resto del código de la aplicación en el contenedor
-COPY . .
+# Environment variables
+ENV KAFKA_BROKER=broker-1:9092
+ENV KAFKA_TOPIC=farm-data
 
-# Comando para ejecutar la aplicación
-CMD ["python", "generator.py"]
+# Command to run the application
+CMD ["python", "producer.py"]
